@@ -66,6 +66,8 @@
 
 <img width="286" height="81" alt="image" src="https://github.com/user-attachments/assets/b6da5b8d-70cf-4596-a8e1-cc85a404cb21" />
 
+> 하이퍼파라미터 튜닝을 통해 개별 모델들이 안정적인 예측력을 확보하였습니다.
+
 
 ##### 3. Stacking Ensemble Pipeline
 
@@ -76,6 +78,11 @@
 - Layer 2 (Final Estimator): Logistic Regression을 메타 모델로 사용하여 각 모델의 예측 결과를 최종 통합.
 
 - 결과: 단일 모델 대비 더욱 견고한 예측 성능 확보.
+
+<img width="319" height="24" alt="image" src="https://github.com/user-attachments/assets/e5c75744-4191-4df3-881b-ecb4af91fb63" />
+
+> 앙상블 기법을 통해 단일 모델 대비 더욱 견고하고 신뢰도 높은 최종 모델을 완성했습니다.
+
 
 ##### 4. Model Interpretation (SHAP Value)
 
@@ -103,5 +110,3 @@
 - 해석: 무분별한 상품 가입 권유는 고객에게 관리 피로도를 유발하며, 실제 혜택 체감도를 떨어뜨릴 수 있습니다.
 
 - 제언: 상품 가입 '개수' 중심의 마케팅에서 벗어나, 주거래 고객이 확실한 우대 혜택을 체감할 수 있는 패키지 리워드 체계 및 주거래 고객 우대 제도의 실효성을 재점검해야 합니다.
----
-### ipynb
