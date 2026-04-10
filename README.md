@@ -46,7 +46,7 @@
 ---
 ### AutoML – Hyperparameter Tuning – Stacking Pipe – Shap value
 
-1. AutoML & Model Selection
+##### 1. AutoML & Model Selection
 
 - 다양한 머신러닝 알고리즘의 베이스라인 성능을 비교하여 최적의 상위 모델을 선정하였습니다.
 
@@ -56,7 +56,7 @@
 
 
 
-2. Hyperparameter Tuning (Optuna)
+##### 2. Hyperparameter Tuning (Optuna)
 
 - 선정된 상위 3개 모델(CatBoost, LGBM, GBC)에 대해 Optuna 프레임워크를 적용, 베이지안 최적화 기반의 하이퍼파라미터 튜닝을 수행했습니다.
 
@@ -64,7 +64,7 @@
 
 - 전략: 10~50회 이상의 Trial을 통해 learning_rate, depth, iterations 등의 최적 조합을 도출했습니다.
 
-3. Stacking Ensemble Pipeline
+##### 3. Stacking Ensemble Pipeline
 
 - 단일 모델의 한계를 극복하기 위해 StackingClassifier를 구축하여 예측력을 한 단계 높였습니다.
 
@@ -74,7 +74,7 @@
 
 - 결과: 단일 모델 대비 더욱 견고한 예측 성능 확보.
 
-4. Model Interpretation (SHAP Value)
+##### 4. Model Interpretation (SHAP Value)
 
 - 모델의 판단 근거를 시각화하기 위해 SHAP 분석을 수행했습니다.
 
@@ -85,7 +85,7 @@
 ---
 ### 인사이트 및 제언
 
-1. 연령대별 차별화된 리텐션 전략의 필요성
+##### 1. 연령대별 차별화된 리텐션 전략의 필요성
 
 - 현상: SHAP 분석 결과 이탈에 가장 지대한 영향을 미치는 요인은 나이로 나타났습니다. 특히 은퇴 전후 시점의 고객층에서 이탈 징후가 뚜렷합니다.
 
@@ -93,7 +93,7 @@
 
 - 제언: 중장년층을 위한 전용 자산 관리 솔루션과 시니어 친화적 디지털 뱅킹 UI/UX 개선을 통해 고객 이탈을 선제적으로 방어해야 합니다.
 
-2. 양적 팽창에서 질적 관리로의 패러다임 전환
+##### 2. 양적 팽창에서 질적 관리로의 패러다임 전환
 
 - 현상: 상품 보유 수와 고객 충성도는 단순 비례 관계가 아님이 확인되었습니다. 오히려 다수의 상품을 보유한 고객이 관리 미흡 시 더 큰 기회비용을 느끼고 이탈할 위험이 존재합니다.
 
