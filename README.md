@@ -57,17 +57,25 @@
 
 
 2. Hyperparameter Tuning (Optuna)
+
 선정된 상위 3개 모델(CatBoost, LGBM, GBC)에 대해 Optuna 프레임워크를 적용, 베이지안 최적화 기반의 하이퍼파라미터 튜닝을 수행했습니다.
+
 목적: 각 모델의 오버피팅을 방지하고 F1-Score를 극대화.
+
 전략: 10~50회 이상의 Trial을 통해 learning_rate, depth, iterations 등의 최적 조합을 도출했습니다.
 
 3. Stacking Ensemble Pipeline
+
 단일 모델의 한계를 극복하기 위해 StackingClassifier를 구축하여 예측력을 한 단계 높였습니다.
+
 Layer 1 (Base Estimators): Optuna로 최적화된 CatBoost, LGBM, GBC
+
 Layer 2 (Final Estimator): Logistic Regression을 메타 모델로 사용하여 각 모델의 예측 결과를 최종 통합.
+
 결과: 단일 모델 대비 더욱 견고한 예측 성능 확보.
 
 4. Model Interpretation (SHAP Value)
+
 모델의 판단 근거를 시각화하기 위해 SHAP 분석을 수행했습니다.
 
 <img width="757" height="550" alt="image" src="https://github.com/user-attachments/assets/88b460c4-1181-47a1-9a13-b4c761f68c64" />
