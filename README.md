@@ -55,12 +55,14 @@
 결과: CatBoost, LightGBM과 GBC가 F1-Score 약 0.59 대를 기록하며 금융 데이터의 불균형 속에서도 안정적인 성능을 보임을 확인했습니다.
 
 
+
 2. Hyperparameter Tuning (Optuna)
 선정된 상위 3개 모델(CatBoost, LGBM, GBC)에 대해 Optuna 프레임워크를 적용, 베이지안 최적화 기반의 하이퍼파라미터 튜닝을 수행했습니다.
 
 목적: 각 모델의 오버피팅을 방지하고 F1-Score를 극대화.
 
 전략: 10~50회 이상의 Trial을 통해 learning_rate, depth, iterations 등의 최적 조합을 도출했습니다.
+
 
 3. Stacking Ensemble Pipeline
 단일 모델의 한계를 극복하기 위해 StackingClassifier를 구축하여 예측력을 한 단계 높였습니다.
@@ -71,10 +73,12 @@ Layer 2 (Final Estimator): Logistic Regression을 메타 모델로 사용하여 
 
 결과: 단일 모델 대비 더욱 견고한 예측 성능 확보.
 
+
 4. Model Interpretation (SHAP Value)
 모델의 판단 근거를 시각화하기 위해 SHAP 분석을 수행했습니다.
 
 <img width="757" height="550" alt="image" src="https://github.com/user-attachments/assets/88b460c4-1181-47a1-9a13-b4c761f68c64" />
+
 
 핵심 변수 기여도: Age와 Products_Number가 이탈 예측에 가장 결정적인 역할을 수행.
 ---
