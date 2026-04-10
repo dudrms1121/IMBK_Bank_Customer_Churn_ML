@@ -83,7 +83,7 @@ Layer 2 (Final Estimator): Logistic Regression을 메타 모델로 사용하여 
 
 #### 핵심 변수 기여도: Age와 Products_Number가 이탈 예측에 가장 결정적인 역할을 수행.
 ---
-### 인사이트 제안
+### 인사이트 및 제언
 
 1. 연령대별 차별화된 리텐션 전략의 필요성
 
