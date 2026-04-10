@@ -48,9 +48,9 @@
 
 ##### 1. AutoML & Model Selection
 
-- 다양한 머신러닝 알고리즘의 베이스라인 성능을 비교하여 최적의 상위 모델을 선정하였습니다.
-
 <img width="980" height="559" alt="image" src="https://github.com/user-attachments/assets/8964e7be-adce-4f09-aa22-eb195f67087d" />
+
+- 다양한 머신러닝 알고리즘의 베이스라인 성능을 비교하여 최적의 상위 모델을 선정하였습니다.
 
 - 결과 : CatBoost, LightGBM과 GBC가 F1-Score 약 0.59 대를 기록하며 금융 데이터의 불균형 속에서도 안정적인 성능을 보임을 확인했습니다.
 
