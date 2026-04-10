@@ -43,3 +43,55 @@
 - 비즈니스 인사이트
 1. 현재 우리 은행의 주력 고객층은 경제 활동이 가장 활발한 3040 세대임을 알 수 있습니다.
 2. 20대 초반의 가파른 상승 곡선은 잠재 고객 확보 가능성을 시사하므로, 이들을 주거래 고객으로 안착시키기 위한 '생애 첫 금융 상품' 등의 타겟 마케팅이 유효할 것으로 판단됩니다.
+---
+### AutoML – Hyperparameter Tuning – Stacking Pipe – Shap value
+
+1. AutoML & Model Selection
+다양한 머신러닝 알고리즘의 베이스라인 성능을 비교하여 최적의 상위 모델을 선정하였습니다.
+
+<img width="980" height="559" alt="image" src="https://github.com/user-attachments/assets/8964e7be-adce-4f09-aa22-eb195f67087d" />
+
+
+결과: CatBoost, LightGBM과 GBC가 F1-Score 약 0.59 대를 기록하며 금융 데이터의 불균형 속에서도 안정적인 성능을 보임을 확인했습니다.
+
+
+2. Hyperparameter Tuning (Optuna)
+선정된 상위 3개 모델(CatBoost, LGBM, GBC)에 대해 Optuna 프레임워크를 적용, 베이지안 최적화 기반의 하이퍼파라미터 튜닝을 수행했습니다.
+
+목적: 각 모델의 오버피팅을 방지하고 F1-Score를 극대화.
+
+전략: 10~50회 이상의 Trial을 통해 learning_rate, depth, iterations 등의 최적 조합을 도출했습니다.
+
+3. Stacking Ensemble Pipeline
+단일 모델의 한계를 극복하기 위해 StackingClassifier를 구축하여 예측력을 한 단계 높였습니다.
+
+Layer 1 (Base Estimators): Optuna로 최적화된 CatBoost, LGBM, GBC
+
+Layer 2 (Final Estimator): Logistic Regression을 메타 모델로 사용하여 각 모델의 예측 결과를 최종 통합.
+
+결과: 단일 모델 대비 더욱 견고한 예측 성능 확보.
+
+4. Model Interpretation (SHAP Value)
+모델의 판단 근거를 시각화하기 위해 SHAP 분석을 수행했습니다.
+
+<img width="757" height="550" alt="image" src="https://github.com/user-attachments/assets/88b460c4-1181-47a1-9a13-b4c761f68c64" />
+
+핵심 변수 기여도: Age와 Products_Number가 이탈 예측에 가장 결정적인 역할을 수행.
+---
+### 인사이트 제안
+
+1. 연령대별 차별화된 리텐션 전략의 필요성
+
+현상: SHAP 분석 결과 이탈에 가장 지대한 영향을 미치는 요인은 나이로 나타났습니다. 특히 은퇴 전후 시점의 고객층에서 이탈 징후가 뚜렷합니다.
+
+해석: 이는 기존 서비스가 고령층 고객의 변화된 금융 니즈(자산 인출, 상속 등)를 충실히 반영하지 못하고 있음을 시사합니다.
+
+제언: 중장년층을 위한 전용 자산 관리 솔루션과 시니어 친화적 디지털 뱅킹 UI/UX 개선을 통해 고객 이탈을 선제적으로 방어해야 합니다.
+
+2. 양적 팽창에서 질적 관리로의 패러다임 전환
+
+현상: 상품 보유 수와 고객 충성도는 단순 비례 관계가 아님이 확인되었습니다. 오히려 다수의 상품을 보유한 고객이 관리 미흡 시 더 큰 기회비용을 느끼고 이탈할 위험이 존재합니다.
+
+해석: 무분별한 상품 가입 권유는 고객에게 관리 피로도를 유발하며, 실제 혜택 체감도를 떨어뜨릴 수 있습니다.
+
+제언: 상품 가입 '개수' 중심의 마케팅에서 벗어나, 주거래 고객이 확실한 우대 혜택을 체감할 수 있는 패키지 리워드 체계 및 주거래 고객 우대 제도의 실효성을 재점검해야 합니다.
