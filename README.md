@@ -22,6 +22,7 @@
 ---
 ### EDA 및 해석
 <img width="560" height="427" alt="image" src="https://github.com/user-attachments/assets/48717dcf-f18c-488f-9d7e-aee2b316a45b" />
+
 - 보유 상품 수 분포 분석
 * 분포 해석
 1. 전체 고객의 약 95% 이상이 1개 또는 2개의 상품만을 보유하고 있습니다.
